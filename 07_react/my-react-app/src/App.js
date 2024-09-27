@@ -10,6 +10,9 @@ import { useState } from 'react';
 import UseStateHook from './pages/hook/UseStateHook';
 import { UseEffectHook } from './pages/hook/UseEffectHook';
 import UseRefHook from './pages/hook/UseRefHook';
+import UseContextHook from './pages/hook/useContext/UseContextHook';
+import UseMemoHook from './pages/hook/useMemo/UseMemoHook';
+import UseCallbackHook from './pages/hook/useCallback/UseCallbackHook';
 /*
   * react-router-dom 모듈
     : react로 생성된 SPA(Single Page Application) 내부에서 페이지 이동을
@@ -46,6 +49,9 @@ function App() {
           <Route path="/us" element={<UseStateHook />} />
           <Route path="/ue" element={<UseEffectHook/>}/>
           <Route path="/ur" element={<UseRefHook />}/>
+          <Route path="/uc" element={<UseContextHook />}/>
+          <Route path="/um" element={<UseMemoHook/>}/>
+          <Route path="/ucb" element={<UseCallbackHook/>}/>
         </Routes>
       </main>
       <footer>

@@ -1,38 +1,26 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import {BrowserRouter,Routes,Route, Link} from 'react-router-dom';
+import Timer from './component/Timer';
+import CountLetters from './component/CountLetters';
 
 function App() {
-  const [day, setDay] = useState(new Date());
-
-  useEffect(()=>{
-    // 1초마다 시간에 대한 정보를 업데이트
-    setInterval(() => {
-      setDay(new Date());
-    },1000);
-  }, [day])
-
-  const formatDate = day.toLocaleDateString('ko-KR',{
-    year: '2-digit',
-    month: '2-digit',
-    day: '2-digit'
-  });
-  const formatTime = day.toLocaleTimeString('ko-KR',{
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit'
-  });
-
   return (
+    <BrowserRouter>
     <div className="App">
       <header className="App-header">
-        <h1>현재 시간</h1>
-        <br/><br/>
-        <p>{formatDate}</p>
-        <p>{formatTime}</p>
-        
-
+        <nav style={{backgroundColor : 'teal'}}>
+          <Link to="/">Home</Link>
+          <Link to="/timer">타이머</Link>
+          <Link to="/countLetters">글자 수 세기</Link>
+        </nav>
       </header>
+      <Routes>
+        <Route path="/" element={<p>메인</p>} />
+        <Route path="/timer" element={<Timer />} />
+        <Route path="/countLetters" element={<CountLetters />} />
+      </Routes>
     </div>
+    </BrowserRouter>
   );
 }
 
